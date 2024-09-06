@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-3">
+  <h2>Accordion with Scrollspy</h2>
+  <div id="accordion">
+    <!-- Collapsible Group Item #1 -->
+
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+          Collapsible Group Item #1
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          Content for Item #1.
+        </div>
+      </div>
+    </div>
+    
+    <!-- Collapsible Group Item #2 with Scrollspy -->
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+          Collapsible Group Item #2 (Scrollspy Example)
+        </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <!-- Scrollspy Navigation -->
+          <nav id="navbar-example2" class="navbar navbar-light bg-light">
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link" href="#section1">Section 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section2">Section 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section3">Section 3</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Scrollspy Content with fixed height -->
+          <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" style="height: 200px; overflow-y: scroll; position: relative;">
+            <div style="height: 200px; background-color: rgb(172, 54, 54);">
+                <h4 id="section1">Section 1</h4>
+                <p>Content for Section 1...</p>
+                <p>Bla bla bla...</p>
+                <p>Alfa Bravo Charlie Delta</p>
+            </div>
+            <div style="height: 200px; ">
+                <h4 id="section2">Section 2</h4>
+                <p>Content for Section 2...</p>
+            </div>
+            <div style="height: 200px; background-color: rgb(161, 161, 168);">
+                <h4 id="section3">Section 3</h4>
+                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                <br>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Firstname</th>
+                      <th>Lastname</th>
+                      <th>Email</th>
+                    </tr>
+                  </thead>
+                  <tbody id="myTable">
+                    <tr>
+                      <td>John</td>
+                      <td>Doe</td>
+                      <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>Mary</td>
+                      <td>Moe</td>
+                      <td>mary@mail.com</td>
+                    </tr>
+                    <tr>
+                      <td>July</td>
+                      <td>Dooley</td>
+                      <td>july@greatstuff.com</td>
+                    </tr>
+                    <tr>
+                      <td>Anja</td>
+                      <td>Ravendale</td>
+                      <td>a_r@test.com</td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Collapsible Group Item #3 -->
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          Content for Item #3.
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapsible Group Item #4 -->
+    <div class="card">
+        <div class="card-header">
+          <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+            Collapsible Group Item #4
+          </a>
+        </div>
+        <div id="collapseFour" class="collapse" >
+          <div class="card-body">
+            Sapo boi vaca não é
+          </div>
+        </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- O script abaixo serve para fazer a busca na tabela-->
+<script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+</script>
+
+</body>
+</html>
